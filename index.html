@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Memories of SNIT | Sree Narayana Institute of Technology</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=DM+Mono:wght@300;400;500&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #050d1f;
+      --surface: #0b1a35;
+      --card: #0f2040;
+      --border: #1a3260;
+      --accent: #3b82f6;
+      --accent-light: #60a5fa;
+      --accent-glow: rgba(59,130,246,0.25);
+      --text: #e8f0ff;
+      --muted: #6b8ab0;
+      --white: #ffffff;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 300;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    /* NAVBAR */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 200;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 48px;
+      height: 64px;
+      background: rgba(5,13,31,0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--white);
+      text-decoration: none;
+    }
+
+    .nav-logo span { color: var(--accent-light); font-style: italic; }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color .2s;
+    }
+
+    .nav-links a:hover { color: var(--accent-light); }
+
+    .nav-ig {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* HERO */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 120px 24px 80px;
+      overflow: hidden;
+    }
+
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(59,130,246,.07) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(59,130,246,.07) 1px, transparent 1px);
+      background-size: 60px 60px;
+      mask-image: radial-gradient(ellipse 80% 70% at 50% 50%, black 40%, transparent 100%);
+      animation: gridPan 20s linear infinite;
+    }
+
+    @keyframes gridPan {
+      from { background-position: 0 0; }
+      to   { background-position: 60px 60px; }
+    }
+
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.35;
+    }
+
+    .orb-1 {
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, #1d4ed8, transparent);
+      top: -100px; left: -100px;
+      animation: orbFloat 8s ease-in-out infinite;
+    }
+
+    .orb-2 {
+      width: 400px; height: 400px;
+      background: radial-gradient(circle, #0ea5e9, transparent);
+      bottom: -80px; right: -80px;
+      animation: orbFloat2 8s ease-in-out infinite;
+      animation-delay: -4s;
+    }
+
+    .orb-3 {
+      width: 300px; height: 300px;
+      background: radial-gradient(circle, #3b82f6, transparent);
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      opacity: 0.15;
+    }
+
+    @keyframes orbFloat {
+      0%, 100% { transform: translateY(0); }
+      50%       { transform: translateY(-30px); }
+    }
+
+    @keyframes orbFloat2 {
+      0%, 100% { transform: translateY(0); }
+      50%       { transform: translateY(30px); }
+    }
+
+    .hero-eyebrow {
+      position: relative;
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: .22em;
+      text-transform: uppercase;
+      color: var(--accent-light);
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .hero-eyebrow::before,
+    .hero-eyebrow::after {
+      content: '';
+      display: block;
+      width: 40px;
+      height: 1px;
+      background: var(--accent);
+      opacity: .5;
+    }
+
+    .hero-title {
+      position: relative;
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3rem, 8vw, 6.5rem);
+      font-weight: 700;
+      line-height: 1.0;
+      letter-spacing: -.03em;
+      color: var(--white);
+      margin-bottom: 20px;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--accent-light);
+      display: block;
+    }
+
+    .hero-sub {
+      position: relative;
+      font-size: 1rem;
+      color: var(--muted);
+      max-width: 480px;
+      line-height: 1.7;
+      margin-bottom: 48px;
+    }
+
+    .hero-cta {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--accent);
+      color: var(--white);
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      padding: 15px 36px;
+      text-decoration: none;
+      transition: background .2s, box-shadow .2s;
+    }
+
+    .hero-cta:hover {
+      background: var(--accent-light);
+      box-shadow: 0 0 32px 8px var(--accent-glow);
+    }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      color: var(--muted);
+      font-family: 'DM Mono', monospace;
+      font-size: 9px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      animation: scrollBounce 2s ease-in-out infinite;
+    }
+
+    @keyframes scrollBounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50%       { transform: translateX(-50%) translateY(8px); }
+    }
+
+    /* STATS BAR */
+    .stats-bar {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      justify-content: center;
+    }
+
+    .stat {
+      flex: 1;
+      max-width: 240px;
+      padding: 32px;
+      text-align: center;
+      border-right: 1px solid var(--border);
+    }
+
+    .stat:last-child { border-right: none; }
+
+    .stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: var(--accent-light);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .stat-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 9px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* DIRECTORY */
+    #directory { padding: 80px 0 40px; }
+
+    .section-header {
+      padding: 0 48px 36px;
+    }
+
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 3vw, 2.6rem);
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.1;
+    }
+
+    .section-title span { color: var(--accent-light); font-style: italic; }
+
+    .controls {
+      display: flex;
+      gap: 10px;
+      padding: 0 48px 24px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .search-wrap {
+      flex: 1;
+      min-width: 220px;
+      position: relative;
+    }
+
+    .search-wrap input {
+      width: 100%;
+      background: var(--card);
+      border: 1px solid var(--border);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      padding: 12px 16px 12px 44px;
+      outline: none;
+      transition: border-color .2s, box-shadow .2s;
+    }
+
+    .search-wrap input::placeholder { color: var(--muted); }
+    .search-wrap input:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px var(--accent-glow);
+    }
+
+    .search-icon {
+      position: absolute;
+      left: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--muted);
+      pointer-events: none;
+    }
+
+    .filter-btn {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--muted);
+      padding: 12px 18px;
+      cursor: pointer;
+      transition: all .2s;
+      white-space: nowrap;
+    }
+
+    .filter-btn:hover { border-color: var(--accent); color: var(--accent-light); }
+    .filter-btn.active { background: var(--accent); color: var(--white); border-color: var(--accent); }
+
+    .count-bar {
+      padding: 0 48px 20px;
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: .12em;
+      color: var(--muted);
+      text-transform: uppercase;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1px;
+      background: var(--border);
+      margin: 0 48px;
+      border: 1px solid var(--border);
+    }
+
+    /* CARD */
+    .card {
+      background: var(--card);
+      padding: 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      text-decoration: none;
+      color: inherit;
+      position: relative;
+      overflow: hidden;
+      transition: background .25s;
+      animation: fadeUp .5s both;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 3px;
+      background: var(--accent);
+      opacity: 0;
+      transition: opacity .25s;
+    }
+
+    .card:hover { background: #142850; }
+    .card:hover::before { opacity: 1; }
+    .card:hover .card-arrow { opacity: 1; transform: translate(0,0); }
+    .card:hover .card-glow { opacity: 1; }
+
+    .card-glow {
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 180px; height: 180px;
+      background: radial-gradient(circle, var(--accent-glow), transparent 70%);
+      opacity: 0;
+      transition: opacity .4s;
+      pointer-events: none;
+    }
+
+    .card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .card-tag {
+      font-family: 'DM Mono', monospace;
+      font-size: 9px;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--accent-light);
+      background: rgba(59,130,246,.12);
+      padding: 4px 10px;
+    }
+
+    .card-arrow {
+      opacity: 0;
+      transform: translate(-6px, 6px);
+      transition: opacity .25s, transform .25s;
+      color: var(--accent-light);
+      font-size: 20px;
+    }
+
+    .card-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: var(--white);
+      line-height: 1.2;
+    }
+
+    .card-handle {
+      font-family: 'DM Mono', monospace;
+      font-size: 12px;
+      color: var(--accent-light);
+    }
+
+    .card-desc {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .card-footer {
+      margin-top: 4px;
+      padding-top: 14px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* ADD */
+    .add-area {
+      margin: 1px 48px 0;
+      background: var(--border);
+      padding: 1px;
+    }
+
+    .add-btn {
+      width: 100%;
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      background: var(--card);
+      border: none;
+      color: var(--muted);
+      padding: 20px;
+      cursor: pointer;
+      transition: background .2s, color .2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+
+    .add-btn:hover { background: #142850; color: var(--accent-light); }
+
+    /* ABOUT */
+    #about {
+      padding: 80px 48px;
+      max-width: 720px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .about-eyebrow {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--accent-light);
+      margin-bottom: 16px;
+    }
+
+    .about-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      color: var(--white);
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+
+    .about-title em { color: var(--accent-light); }
+
+    .about-text {
+      font-size: 15px;
+      color: var(--muted);
+      line-height: 1.85;
+    }
+
+    /* FOOTER */
+    footer {
+      margin-top: 60px;
+      border-top: 1px solid var(--border);
+      background: var(--surface);
+      padding: 52px 48px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .footer-brand {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 10px;
+    }
+
+    .footer-brand em { color: var(--accent-light); font-style: italic; }
+
+    .footer-tagline {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .footer-right { text-align: right; }
+
+    .footer-ig-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      text-decoration: none;
+      transition: color .2s;
+      margin-bottom: 12px;
+    }
+
+    .footer-ig-link:hover { color: var(--accent-light); }
+
+    .footer-copy {
+      font-family: 'DM Mono', monospace;
+      font-size: 9px;
+      letter-spacing: .1em;
+      color: var(--border);
+      text-transform: uppercase;
+    }
+
+    /* MODAL */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(5,13,31,.85);
+      backdrop-filter: blur(10px);
+      z-index: 300;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal-overlay.open { display: flex; }
+
+    .modal {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 44px;
+      width: 100%;
+      max-width: 500px;
+      margin: 20px;
+      animation: fadeUp .25s both;
+      position: relative;
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 16px; right: 20px;
+      background: none;
+      border: none;
+      color: var(--muted);
+      font-size: 24px;
+      cursor: pointer;
+      line-height: 1;
+      transition: color .2s;
+    }
+
+    .modal-close:hover { color: var(--text); }
+
+    .modal h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      color: var(--white);
+      margin-bottom: 6px;
+    }
+
+    .modal-sub {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 28px;
+    }
+
+    .form-group { margin-bottom: 16px; }
+
+    .form-group label {
+      display: block;
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 7px;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      width: 100%;
+      background: var(--card);
+      border: 1px solid var(--border);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 14px;
+      padding: 11px 14px;
+      outline: none;
+      transition: border-color .2s, box-shadow .2s;
+      resize: vertical;
+    }
+
+    .form-group input:focus,
+    .form-group textarea:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px var(--accent-glow);
+    }
+
+    .modal-actions {
+      display: flex;
+      gap: 12px;
+      margin-top: 28px;
+      justify-content: flex-end;
+    }
+
+    .btn-primary {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      background: var(--accent);
+      color: var(--white);
+      border: 1px solid var(--accent);
+      padding: 12px 28px;
+      cursor: pointer;
+      transition: background .2s, box-shadow .2s;
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-light);
+      box-shadow: 0 0 20px var(--accent-glow);
+    }
+
+    .btn-cancel {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      background: transparent;
+      color: var(--muted);
+      border: 1px solid var(--border);
+      padding: 12px 24px;
+      cursor: pointer;
+      transition: border-color .2s, color .2s;
+    }
+
+    .btn-cancel:hover { border-color: var(--muted); color: var(--text); }
+
+    .empty {
+      grid-column: 1/-1;
+      padding: 80px 28px;
+      text-align: center;
+      background: var(--card);
+    }
+
+    .empty p {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 1.2rem;
+      color: var(--muted);
+    }
+
+    @media (max-width: 768px) {
+      nav { padding: 0 20px; }
+      .nav-links { display: none; }
+      .hero { padding: 100px 20px 64px; }
+      .stats-bar { flex-wrap: wrap; }
+      .stat { min-width: 50%; border-bottom: 1px solid var(--border); }
+      .section-header, .controls, .count-bar, #about { padding-left: 20px; padding-right: 20px; }
+      .grid { margin: 0 20px; }
+      .add-area { margin: 1px 20px 0; }
+      footer { grid-template-columns: 1fr; padding: 32px 20px; }
+      .footer-right { text-align: left; }
+      .modal { padding: 28px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Memories <span>of SNIT</span></a>
+  <ul class="nav-links">
+    <li><a href="#hero">Home</a></li>
+    <li><a href="#directory">Directory</a></li>
+    <li><a href="#about">About</a></li>
+  </ul>
+  <div class="nav-ig">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+      <rect x="2" y="2" width="20" height="20" rx="5"/>
+      <circle cx="12" cy="12" r="4"/>
+      <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+    </svg>
+    SNIT Depts
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <div class="hero-grid"></div>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+
+  <div class="hero-eyebrow">Sree Narayana Institute of Technology</div>
+  <h1 class="hero-title">
+    Memories
+    <em>of SNIT</em>
+  </h1>
+  <p class="hero-sub">Every department has a story. Follow along, stay connected, and relive the moments that make SNIT unforgettable.</p>
+  <a href="#directory" class="hero-cta">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <rect x="2" y="2" width="20" height="20" rx="5"/>
+      <circle cx="12" cy="12" r="4"/>
+      <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+    </svg>
+    Explore Departments
+  </a>
+
+  <div class="hero-scroll">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M12 5v14M5 12l7 7 7-7"/>
+    </svg>
+    Scroll
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-bar">
+  <div class="stat">
+    <div class="stat-num">7</div>
+    <div class="stat-label">Departments</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">7</div>
+    <div class="stat-label">Instagram Pages</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">1</div>
+    <div class="stat-label">Community</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num">∞</div>
+    <div class="stat-label">Memories</div>
+  </div>
+</div>
+
+<!-- DIRECTORY -->
+<section id="directory">
+  <div class="section-header">
+    <h2 class="section-title">Department <span>Directory</span></h2>
+  </div>
+
+  <div class="controls">
+    <div class="search-wrap">
+      <svg class="search-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/>
+      </svg>
+      <input type="text" id="search" placeholder="Search departments or clubs…" autocomplete="off" />
+    </div>
+    <button class="filter-btn active" data-cat="all">All</button>
+    <button class="filter-btn" data-cat="CEPTA">CEPTA</button>
+    <button class="filter-btn" data-cat="SAFE">SAFE</button>
+    <button class="filter-btn" data-cat="Elegends">Elegends</button>
+    <button class="filter-btn" data-cat="Spectra">Spectra</button>
+    <button class="filter-btn" data-cat="ARMEOS">ARMEOS</button>
+    <button class="filter-btn" data-cat="INSPRA">INSPRA</button>
+    <button class="filter-btn" data-cat="MBA">MBA</button>
+  </div>
+
+  <div class="count-bar" id="count"></div>
+  <div class="grid" id="grid"></div>
+
+  <div class="add-area">
+    <button class="add-btn" id="openModal">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+        <path d="M12 5v14M5 12h14"/>
+      </svg>
+      Add a Department
+    </button>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-eyebrow">About This Page</div>
+  <h2 class="about-title">One place for all of <em>SNIT's</em> stories</h2>
+  <p class="about-text">This directory brings together the Instagram pages of every department at Sree Narayana Institute of Technology — from Civil to Computer Science, from Electrical to MBA. Whether you're a student, alumni, or just curious, follow along and stay connected with the people and moments that define our college.</p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="footer-brand">Memories <em>of SNIT</em></div>
+    <div class="footer-tagline">Connecting the Sree Narayana Institute of Technology community<br>through social media. One page for every department.</div>
+  </div>
+  <div class="footer-right">
+    <a href="https://www.instagram.com" target="_blank" class="footer-ig-link">
+      <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+        <rect x="2" y="2" width="20" height="20" rx="5"/>
+        <circle cx="12" cy="12" r="4"/>
+        <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+      </svg>
+      Instagram
+    </a>
+    <div class="footer-copy">© 2025 SNIT · All departments</div>
+  </div>
+</footer>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modal">
+  <div class="modal">
+    <button class="modal-close" id="closeModal">×</button>
+    <h2>Add Department</h2>
+    <p class="modal-sub">Add a new SNIT department Instagram page to the directory.</p>
+    <div class="form-group">
+      <label>Department Name</label>
+      <input type="text" id="f-name" placeholder="e.g. Department of Chemistry" />
+    </div>
+    <div class="form-group">
+      <label>Club / Society Name</label>
+      <input type="text" id="f-club" placeholder="e.g. CHEMX" />
+    </div>
+    <div class="form-group">
+      <label>Instagram Handle (without @)</label>
+      <input type="text" id="f-handle" placeholder="e.g. snit_chemx" />
+    </div>
+    <div class="form-group">
+      <label>Full Instagram URL</label>
+      <input type="text" id="f-url" placeholder="https://www.instagram.com/…" />
+    </div>
+    <div class="form-group">
+      <label>Short Description</label>
+      <textarea id="f-desc" rows="2" placeholder="One sentence about the department…"></textarea>
+    </div>
+    <div class="modal-actions">
+      <button class="btn-cancel" id="cancelModal">Cancel</button>
+      <button class="btn-primary" id="submitModal">Add Department</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  const departments = [
+    { name: "Civil Engineering",                club: "CEPTA",    handle: "cepta_snit",    url: "https://www.instagram.com/cepta_snit?igsh=M3k0Mzc0cGFwOTM1",                        desc: "Building the infrastructure of tomorrow." },
+    { name: "Automobile Engineering",           club: "SAFE",     handle: "safesnit_",     url: "https://www.instagram.com/safesnit_?igsh=MTQ0Y256bGoyNzRkZw==",                      desc: "Engineering the vehicles that move the world." },
+    { name: "Electrical Engineering",           club: "Elegends", handle: "eee__elegends", url: "https://www.instagram.com/eee__elegends?igsh=M2wzYWRoYzN1Mm9t",                     desc: "Powering innovation through electrical systems." },
+    { name: "Electronics & Communication Eng.", club: "Spectra",  handle: "spectra_._",    url: "https://www.instagram.com/spectra_._?igsh=YTk5Y3dhb2RjbWx5",                        desc: "Connecting the world through signals and circuits." },
+    { name: "Mechanical Engineering",           club: "ARMEOS",   handle: "ar_me_os",      url: "https://www.instagram.com/ar_me_os?igsh=MWUxbTQ4MnNoZnc3NQ==",                      desc: "Designing and building the machines of the future." },
+    { name: "Computer Science Engineering",     club: "INSPRA",   handle: "inspra_2024",   url: "https://www.instagram.com/inspra_2024?igsh=ZHdpNmx6d2ViNjIx&utm_source=qr",         desc: "Algorithms, software, and the digital frontier." },
+    { name: "Department of MBA",                club: "MBA",      handle: "mba.snitadoor", url: "https://www.instagram.com/mba.snitadoor?igsh=MWc0Nnl5NnI2Mmgzbw==",                 desc: "Business leadership, management, and entrepreneurship." },
+  ];
+
+  let activeFilter = "all";
+  let searchVal = "";
+
+  const grid = document.getElementById("grid");
+  const countEl = document.getElementById("count");
+
+  function filtered() {
+    return departments.filter(d => {
+      const matchCat = activeFilter === "all" || d.club === activeFilter;
+      const q = searchVal.toLowerCase();
+      const matchSearch = !q || d.name.toLowerCase().includes(q) || d.handle.toLowerCase().includes(q) || d.desc.toLowerCase().includes(q) || d.club.toLowerCase().includes(q);
+      return matchCat && matchSearch;
+    });
+  }
+
+  function render() {
+    const list = filtered();
+    countEl.textContent = `${list.length} department${list.length !== 1 ? "s" : ""}`;
+    grid.innerHTML = "";
+    if (!list.length) {
+      grid.innerHTML = `<div class="empty"><p>No departments found.</p></div>`;
+      return;
+    }
+    list.forEach((d, i) => {
+      const a = document.createElement("a");
+      a.className = "card";
+      a.href = d.url;
+      a.target = "_blank";
+      a.rel = "noopener noreferrer";
+      a.style.animationDelay = `${i * 50}ms`;
+      a.innerHTML = `
+        <div class="card-glow"></div>
+        <div class="card-top">
+          <span class="card-tag">${d.club}</span>
+          <span class="card-arrow">↗</span>
+        </div>
+        <div class="card-name">${d.name}</div>
+        <div class="card-handle">@${d.handle}</div>
+        <div class="card-desc">${d.desc}</div>
+        <div class="card-footer">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <rect x="2" y="2" width="20" height="20" rx="5"/>
+            <circle cx="12" cy="12" r="4"/>
+            <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+          </svg>
+          View on Instagram
+        </div>
+      `;
+      grid.appendChild(a);
+    });
+  }
+
+  document.querySelectorAll(".filter-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+      document.querySelectorAll(".filter-btn").forEach(b => b.classList.remove("active"));
+      btn.classList.add("active");
+      activeFilter = btn.dataset.cat;
+      render();
+    });
+  });
+
+  document.getElementById("search").addEventListener("input", e => {
+    searchVal = e.target.value;
+    render();
+  });
+
+  const modal = document.getElementById("modal");
+  document.getElementById("openModal").addEventListener("click", () => modal.classList.add("open"));
+  document.getElementById("closeModal").addEventListener("click", () => modal.classList.remove("open"));
+  document.getElementById("cancelModal").addEventListener("click", () => modal.classList.remove("open"));
+  modal.addEventListener("click", e => { if (e.target === modal) modal.classList.remove("open"); });
+
+  document.getElementById("submitModal").addEventListener("click", () => {
+    const name   = document.getElementById("f-name").value.trim();
+    const club   = document.getElementById("f-club").value.trim();
+    const handle = document.getElementById("f-handle").value.trim().replace(/^@/, "");
+    const url    = document.getElementById("f-url").value.trim() || `https://www.instagram.com/${handle}/`;
+    const desc   = document.getElementById("f-desc").value.trim();
+    if (!name || !handle) { alert("Please enter at least a department name and handle."); return; }
+    departments.unshift({ name, club: club || handle, handle, url, desc: desc || "Follow us on Instagram." });
+    modal.classList.remove("open");
+    ["f-name","f-club","f-handle","f-url","f-desc"].forEach(id => document.getElementById(id).value = "");
+    render();
+  });
+
+  render();
+</script>
+</body>
+</html>
